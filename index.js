@@ -23,6 +23,7 @@ bot.on("message", message => {
 
 
                     
-                })
-            
-        }}})
+                }
+                     
+                     
+)})}})
