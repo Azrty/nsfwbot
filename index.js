@@ -10,7 +10,7 @@ bot.on("message", message => {
             mess.react('✅')
             mess.react('❌')
             const track = mess.createReactionCollector((r, u, nsfwmsg) => u.id === message.author.id)
-            track.on('collect', r => {
+            track.on('collect', (r, nsfwmsg) => {
                 if (r.emoji.name === "✅") { 
                 message.channel.bulkDelete(1)
                 message.delete()
