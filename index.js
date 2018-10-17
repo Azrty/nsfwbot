@@ -9,8 +9,8 @@ bot.on("message", message => {
         var nsfwmsg = message.channel.send("Cet accès peut choquer ou toucher la sensibilité des plus jeunes \nVous êtes responsable de ce que vous allez voir.\nÊtes vous sûr d'avoir accès au NSFW ?").then(mess => {
             mess.react('✅')
             mess.react('❌')
-            const track = mess.createReactionCollector((r, u, nsfwmsg) => u.id === message.author.id)
-            track.on('collect', r, nsfwmsg => {
+            const track = mess.createReactionCollector((r, u) => u.id === message.author.id)
+            track.on('collect', r, (nsfwmsg) => {
                 if (r.emoji.name === "✅") { 
                 message.channel.bulkDelete(1)
                 message.delete()
