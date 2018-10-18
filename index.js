@@ -12,14 +12,15 @@ bot.on("message", message => {
             const track = mess.createReactionCollector((r, u) => u.id === message.author.id)
             track.on('collect', r => {
                 if (r.emoji.name === "✅") { 
-                message.channel.bulkDelete(1)
+                mess.delete()
                 message.delete()
                     var role = message.guild.roles.find('name', '⚠️ NSFW');
                     message.member.addRole(role)
                     message.reply("Vous avez bien reçu l'accès au NSFW")}
                 if (r.emoji.name === "❌") {
                     //message.channel.bulkDelete(1)
-                    nsfwmsg.delete()
+                    mess.delete()
+		    message.delete()
                     message.channel.send("Demande d'accès au NSFW annulée !")}
 
 
