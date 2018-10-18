@@ -28,3 +28,8 @@ bot.on("message", message => {
                      
                      
 )})}})
+
+client.on('guildMemberAdd', member => {
+	member.addRole(member.guild.roles.find('name', 'Membre').id);
+	member.guild.channels.get('405485337993936927').send(`**Bienvenue ${member.user.username}** sur **__AzerWorld__** ! 🎉🤗`);
+});
